@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer utilities {
+  /* Keyframes for Falling Snowflakes */
+  @keyframes snowflake-fall {
+    0% {
+      transform: translateY(-20px) translateX(0) rotate(0deg);
+      opacity: 0;
+    }
+    10% {
+      opacity: var(--snowflake-opacity);
+    }
+    90% {
+      opacity: var(--snowflake-opacity);
+    }
+    100% {
+      transform: translateY(105vh) translateX(var(--sway-x, 40px)) rotate(var(--rotate-to, 360deg));
+      opacity: 0;
+    }
+  }
+
+  /* Keyframes for Floating Balloons */
+  @keyframes balloon-float {
+    0% {
+      transform: translateY(0) translateX(0) scale(1) rotate(var(--tilt-start, 0deg));
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-120vh) translateX(var(--drift-x, -30px)) scale(1.02) rotate(var(--tilt-end, 12deg));
+      opacity: 0;
+    }
+  }
+
+  /* Classes to trigger animations */
+  .animate-snowflake {
+    animation-name: snowflake-fall;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+  }
+
+  .animate-balloon {
+    animation-name: balloon-float;
+    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    animation-fill-mode: forwards;
+  }
+}
+
+/* Base custom styles to guarantee a pristine presentation */
+body {
+  background-color: #f8fafc;
+  color: #0f172a;
+  overflow: hidden;
+  position: relative;
+  min-height: 100vh;
+}

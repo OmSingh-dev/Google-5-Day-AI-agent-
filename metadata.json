@@ -1,0 +1,6 @@
+{
+  "name": "Snowflake and Balloon Simulator",
+  "description": "An interactive simulator featuring blue falling snowflakes and glossy balloons.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
